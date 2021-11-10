@@ -22,7 +22,7 @@ public class Main {
 
 		// Create array with 200M random numbers between 1 & 10
 		if(randomArray == null) {
-			randomArray = generateArray();
+			randomArray = generateArray(randomArray);
 		}
 		
 		// Store start time, execute singleSum on array, print results
@@ -43,16 +43,16 @@ public class Main {
 	
 	/* Method to generate an array of random numbers to be summed.
 	 * @return - an array of randomly-generated numbers with length = arraySize */
-	public static int[] generateArray() {
+	public static int[] generateArray(int[] arr) {
 		// Initialize array
-		randomArray = new int[arraySize];
+		arr = new int[arraySize];
 		
 		// Generate random number at each index from 1-10
 		for(int i = 0; i < arraySize; i++) {
-			randomArray[i] = random.nextInt(10) + 1;
+			arr[i] = random.nextInt(10) + 1;
 		}
 		
-		return randomArray;
+		return arr;
 	}
 	
 	/** A Method to check if two ints are equal using subtraction and == 0.
