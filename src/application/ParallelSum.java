@@ -33,7 +33,7 @@ public class ParallelSum implements Runnable {
 	 * @param array - array of values to be summed
 	 * @param start - array index position at which it begins traversal
      * @param end - array index position at which it terminates traversal 
-	 * @return partialSum int variable returned to run() */
+	 * @return - partialSum int variable to run() */
 	public static int sum(int[] array, int start, int end) {
 		int total = 0;
 		

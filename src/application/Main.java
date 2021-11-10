@@ -22,7 +22,6 @@ public class Main {
 	private static long startTime, runTime;
 
 	
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		// Create array with 200M random numbers between 1 & 10
@@ -30,7 +29,6 @@ public class Main {
 			randomArray = generateArray();
 		}
 		
-		SingleSum singleSumTest = new SingleSum(randomArray);
 		startTime = System.currentTimeMillis();
 		
 		singleSumTotal = SingleSum.singleSum(randomArray);
@@ -48,14 +46,7 @@ public class Main {
 		
 		System.out.println(ThreadColor.ANSI_CYAN + "Parallel Thread sum time is: " + runTime + " ms");
 		
-		
-		boolean areEqual = false;
-		
-		if (singleSumTotal - parallelSumTotal == 0) {
-			areEqual = true;
-		}
-		
-		System.out.println(ThreadColor.ANSI_RESET + "Are they equal?   " + areEqual);
+		printEqual(singleSumTotal, parallelSumTotal);
 		
 	}
 
@@ -71,6 +62,23 @@ public class Main {
 		}
 		
 		return randomArray;
+	}
+	
+	public static boolean areEqual(int s1, int s2) {
+		if(s1 - s2 == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static void printEqual(int s1, int s2) {
+		boolean value = areEqual(s1, s2);
+		
+		if(value) {
+			System.out.println(ThreadColor.ANSI_GREEN + "The two sums are equal!");
+		} else {
+			System.out.println(ThreadColor.ANSI_RED + "The two sums are NOT equal!");
+		}
 	}
 	
 }
