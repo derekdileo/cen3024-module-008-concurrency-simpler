@@ -19,6 +19,8 @@ public class ParallelSum implements Runnable {
     	this.end = end;
     }
 
+	/** Getter for partialSum variable
+	 *  @return - sum of values in portion of array traversed by last-active Thread*/
     public int getPartialSum() {
     	return partialSum;
     }
@@ -28,7 +30,6 @@ public class ParallelSum implements Runnable {
 		partialSum = sum(randomArray, start, end);
 	}
 
-	
 	/** Method called inside run() to be executed by each Thread
 	 * @param array - array of values to be summed
 	 * @param start - array index position at which it begins traversal
@@ -76,7 +77,7 @@ public class ParallelSum implements Runnable {
 			threads[i].start();
 		}
 		
-		/* Join threads for sequential order to ensure one terminates before next begins */
+		// Join threads to ensure one terminates before next begins
 		try {
 			for (Thread thread : threads) {
 				thread.join();
@@ -85,13 +86,13 @@ public class ParallelSum implements Runnable {
 			
 		}
 		
-		/* Execute final summation of returned partialSum from each Thread and print result */
+		// Execute final summation of returned partialSum from each Thread and print result
 		int total = 0;
 		for (ParallelSum sum : sums) {
 			total += sum.getPartialSum();
 		}
 		
-		System.out.println(ThreadColor.ANSI_CYAN + "Parallel Thread sum total is: " + total);
+		System.out.println(ThreadColor.ANSI_CYAN + "\nParallel Thread sum total is: " + total);
 		
 		return total;
 		

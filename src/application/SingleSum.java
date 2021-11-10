@@ -27,7 +27,6 @@ public class SingleSum implements Runnable {
 		singleSum = sum(randomArray, start, end);
 	}
 	
-	
 	/** Getter for singleSum instance variable
 	 *  @return - sum of all array values */
 	public int getSingleSum() {
@@ -56,7 +55,6 @@ public class SingleSum implements Runnable {
 		return total;
 	}
 
-	
 	/** Method which instantiates a Thread from a SingleSum(array) object. 
 	 *  When Thread is started, sum(array) is called and resultant sum is returned.    
 	 * @param array - array of values to be summed
@@ -75,7 +73,7 @@ public class SingleSum implements Runnable {
 		/* Execute final summa from each Thread and print result */
 		int total = sum.getSingleSum();
 		
-		System.out.println(ThreadColor.ANSI_PURPLE + "Single Thread sum total is: " + total);
+		System.out.println(ThreadColor.ANSI_PURPLE + "\nSingle Thread sum total is: " + total);
 		
 		return total;
 		
